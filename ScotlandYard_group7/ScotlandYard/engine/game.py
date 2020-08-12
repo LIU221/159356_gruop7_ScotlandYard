@@ -56,10 +56,10 @@ class Game:
                 if self.x.tickets["2x"] < 0:
                     messagebox.showinfo("Error",
                                         "Mr X: stop trying to be special - it isn't working.  attempted to use too many 2x tickets")
+                self.perform_move(self.x, move[1])
+                self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1][1]))
                 self.perform_move(self.x, move[2])
                 self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[2][1]))
-                self.perform_move(self.x, move[3])
-                self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[3][1]))
             else:
                 self.perform_move(self.x, move)
                 self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1]))
@@ -79,7 +79,9 @@ class Game:
                     move = self.detectives_ai.play_move(copy.deepcopy(detective), copy.deepcopy(self.detectives))
                 self.perform_move(detective, move)
 
-        self.is_game_over()
+        if self.is_game_over():
+            messagebox.showinfo("Game Result", self.is_game_over())
+            exit()
 
         if self.turn >= self.player_number:
             self.turn = 0
@@ -118,8 +120,7 @@ class Game:
         detectives_win = any(self.x.pos == plr.pos for plr in self.detectives)
         x_wins = all(self.cant_move(plr) for plr in self.detectives)
         if detectives_win:
-            messagebox.showinfo("Game Result", "The detectives win!")
-            exit()
+            return "The detectives win!"
         if x_wins:
-            messagebox.showinfo("Game Result", "Mr X wins!")
-            exit()
+            return "Mr X wins!"
+        return False
