@@ -32,6 +32,7 @@ class Window(Tk):
         # create widgets
         self.board_canvas = Canvas(self, background="white")
         self.control_frame = Frame(self)
+        self.label_current_round = Label(self.control_frame, text="Current Round: 1")
         self.label_current_player = Label(self.control_frame, text="Current Player: X")
         self.button_next_turn = Button(self.control_frame, text="Next Turn", command=self.next_turn)
         self.text_user_input = Entry(self.control_frame, text="move")
@@ -47,6 +48,7 @@ class Window(Tk):
         # layout widgets
         self.board_canvas.pack(fill='both', expand=True, anchor='w')
         self.control_frame.pack(before=self.board_canvas, side='right', anchor='e')
+        self.label_current_round.pack(fill='x')
         self.label_current_player.pack(fill='x')
         self.button_next_turn.pack(fill='x')
         Label(self.control_frame, text="\n\n\n").pack(fill='x')
@@ -83,6 +85,8 @@ class Window(Tk):
             # checks if move should be AI made or player made
             if self.game.players[self.game.turn].name != self.roles[self.role]:
                 self.game.next_turn()
+                self.label_current_round.configure(
+                    text="Current Round: {}".format(self.game.round))
                 self.label_current_player.configure(
                     text="Current Player: {}".format(self.game.players[self.game.turn].name))
             else:
