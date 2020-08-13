@@ -25,6 +25,8 @@ class Window(Tk):
         self.is_use_2x = False
         self.count_2x = 0
 
+        self.reveal_rounds = [3, 8, 13, 18, 24]
+
         self.geometry('500x300')
 
         # create widgets
@@ -103,17 +105,35 @@ class Window(Tk):
             self.board_canvas.delete(self.img_id)
             self.board_img = ImageTk.PhotoImage(tmp_pil)
             self.img_id = self.board_canvas.create_image(int(width / 2), int(height / 2), image=self.board_img)
-
-        for i, player in enumerate(self.game.players):
-            x, y = self.node_locations[player.pos]
-            x *= width
-            y *= height
-            self.board_canvas.coords(self.player_rects[i], x + width * UNSCALED_RECT_SIZE,
-                                     y + width * UNSCALED_RECT_SIZE, x - width * UNSCALED_RECT_SIZE,
-                                     y - width * UNSCALED_RECT_SIZE)
-            self.board_canvas.coords(self.player_txts[i], x, y)
-            self.board_canvas.lift(self.player_rects[i])
-            self.board_canvas.lift(self.player_txts[i])
+        if self.role > 0 and self.game.round in self.reveal_rounds or self.role == 0:
+            for i, player in enumerate(self.game.players):
+                x, y = self.node_locations[player.pos]
+                x *= width
+                y *= height
+                self.board_canvas.coords(self.player_rects[i], x + width * UNSCALED_RECT_SIZE,
+                                         y + width * UNSCALED_RECT_SIZE, x - width * UNSCALED_RECT_SIZE,
+                                         y - width * UNSCALED_RECT_SIZE)
+                self.board_canvas.coords(self.player_txts[i], x, y)
+                self.board_canvas.lift(self.player_rects[i])
+                self.board_canvas.lift(self.player_txts[i])
+        else:
+            tmp_pil = self.board_img_pil.resize((width, height))
+            self.board_canvas.delete(self.img_id)
+            self.board_img = ImageTk.PhotoImage(tmp_pil)
+            self.img_id = self.board_canvas.create_image(int(width / 2), int(height / 2), image=self.board_img)
+            for i, player in enumerate(self.game.players):
+                if player.name == "X":
+                    pass
+                else:
+                    x, y = self.node_locations[player.pos]
+                    x *= width
+                    y *= height
+                    self.board_canvas.coords(self.player_rects[i], x + width * UNSCALED_RECT_SIZE,
+                                             y + width * UNSCALED_RECT_SIZE, x - width * UNSCALED_RECT_SIZE,
+                                             y - width * UNSCALED_RECT_SIZE)
+                    self.board_canvas.coords(self.player_txts[i], x, y)
+                    self.board_canvas.lift(self.player_rects[i])
+                    self.board_canvas.lift(self.player_txts[i])
 
     # sends user inputted move
     def move(self, *_):

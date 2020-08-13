@@ -18,7 +18,6 @@ class Game:
         self.x = None
         self.round = 1
         self.turn = 0
-        self.reveal_rounds = [3, 8, 13, 18, 24]
         self.player_number = player_number
 
         startTickets = {"taxi": 10, "bus": 8, "underground": 4}
