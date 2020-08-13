@@ -22,6 +22,9 @@ class Window(Tk):
         self.role = role
         self.roles = ["X", "A", "B", "C", "D", "E"]
 
+        self.is_use_2x = False
+        self.count_2x = 0
+
         self.geometry('500x300')
 
         # create widgets
@@ -30,6 +33,8 @@ class Window(Tk):
         self.label_current_player = Label(self.control_frame, text="Current Player: X")
         self.button_next_turn = Button(self.control_frame, text="Next Turn", command=self.next_turn)
         self.text_user_input = Entry(self.control_frame, text="move")
+
+        self.button_2x = Button(self.control_frame, text="Use 2x ticket", command=self.use_2x_ticket)
 
         drop_down_options = {"taxi", "bus", "underground", "black"}
         self.drop_down_selected = StringVar(self.control_frame)
@@ -43,6 +48,7 @@ class Window(Tk):
         self.label_current_player.pack(fill='x')
         self.button_next_turn.pack(fill='x')
         Label(self.control_frame, text="\n\n\n").pack(fill='x')
+        self.button_2x.pack(fill='x')
         self.text_user_input.pack(fill='y')
         self.drop_down_menu.pack(fill='y')
         self.button_send_action.pack(fill='y')
@@ -116,9 +122,17 @@ class Window(Tk):
                 move = (int(self.text_user_input.get()), self.drop_down_selected.get())  # should be changed
                 if self.role > 0 and self.drop_down_selected.get() == "black":
                     messagebox.showinfo("Error",
-                                        "Detective can't use '2x' ticket")
+                                        "Detectives can't use black ticket")
+                elif self.is_use_2x:
+                    self.game.next_turn(move, self.is_use_2x)
+                    self.update_ui()
+                    self.label_current_player.configure(
+                        text="Current Player: {}".format(self.game.players[self.game.turn].name))
+
+                    self.count_2x = 0
+                    self.is_use_2x = False
                 else:
-                    self.game.next_turn(move)
+                    self.game.next_turn(move, self.is_use_2x)
                     self.update_ui()
                     self.label_current_player.configure(
                         text="Current Player: {}".format(self.game.players[self.game.turn].name))
@@ -128,3 +142,11 @@ class Window(Tk):
         else:
             messagebox.showinfo("Error",
                                 "You can't control this role")
+
+    def use_2x_ticket(self):
+        if self.role != 0:
+            messagebox.showinfo("Error",
+                                "Detectives can't use 2x ticket")
+        else:
+            self.count_2x = 1
+            self.is_use_2x = True

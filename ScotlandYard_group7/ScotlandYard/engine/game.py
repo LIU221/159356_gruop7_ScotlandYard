@@ -13,7 +13,7 @@ class Game:
         self.detectives_ai = detectives
         self.mr_x_ai = mr_x
         self.boardmap = load_board()
-        self.x_history = []
+        # self.x_history = []
         self.detectives = []
         self.x = None
         self.round = 1
@@ -35,12 +35,12 @@ class Game:
 
         names = ["A", "B", "C", "D", "E"]
 
-        for n in range(self.player_number-1):
+        for n in range(self.player_number - 1):
             self.detectives.append(Player(dict(startTickets), startLocs[n + 1], names[n]))
 
         self.players = [self.x] + self.detectives.copy()
 
-    def next_turn(self, is_player_move=False):
+    def next_turn(self, is_player_move=False, is_use_2x=False):
         turn = self.turn
         self.turn += 1
 
@@ -51,21 +51,20 @@ class Game:
             else:
                 move = self.mr_x_ai.play_move(copy.deepcopy(self.x))
 
-            if move[0] == "2x":
+            if is_use_2x:
                 self.x.tickets["2x"] -= 1
                 if self.x.tickets["2x"] < 0:
                     messagebox.showinfo("Error",
                                         "Mr X: stop trying to be special - it isn't working.  attempted to use too many 2x tickets")
                 else:
-                    self.perform_move(self.x, move[1])
-                    self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1][1]))
-                    self.perform_move(self.x, move[2])
-                    self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[2][1]))
+                    self.turn -= 1
+                    self.perform_move(self.x, move)
+                    # self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1]))
             else:
                 self.perform_move(self.x, move)
-                self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1]))
+                # self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1]))
 
-            print("X Ledger is updated to ", self.x_history)
+            # print("X Ledger is updated to ", self.x_history)
 
         else:
             # Detective's turn
