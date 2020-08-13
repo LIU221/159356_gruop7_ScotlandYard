@@ -19,6 +19,7 @@ class Game:
         self.round = 1
         self.turn = 0
         self.player_number = player_number
+        self.mrx_ticket = "None"
 
         startTickets = {"taxi": 10, "bus": 8, "underground": 4}
 
@@ -58,13 +59,16 @@ class Game:
                     self.turn -= 1
                     if self.perform_move(self.x, move):
                         self.x.tickets["2x"] -= 1
+                        self.mrx_ticket = move[1]
                         return True
                     else:
                         return False
 
                     # self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1]))
             else:
-                if not self.perform_move(self.x, move):
+                if self.perform_move(self.x, move):
+                    self.mrx_ticket = move[1]
+                else:
                     self.turn -= 1
                 # self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1]))
 
@@ -81,7 +85,7 @@ class Game:
                     move = is_player_move
                 else:
                     move = self.detectives_ai.play_move(copy.deepcopy(detective), copy.deepcopy(self.detectives))
-                if not self.perform_move(self.x, move):
+                if not self.perform_move(detective, move):
                     self.turn -= 1
 
         if self.is_game_over():
