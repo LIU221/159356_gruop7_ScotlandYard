@@ -23,7 +23,7 @@ class Window(Tk):
         self.roles = ["X", "A", "B", "C", "D", "E"]
 
         self.is_use_2x = False
-        self.count_2x = 0
+
 
         self.reveal_rounds = [3, 8, 13, 18, 24]
 
@@ -148,13 +148,14 @@ class Window(Tk):
                     messagebox.showinfo("Error",
                                         "Detectives can't use black ticket")
                 elif self.is_use_2x:
-                    self.game.next_turn(move, self.is_use_2x)
+                    if not self.game.next_turn(move, self.is_use_2x):
+                        self.is_use_2x = True
+
+                    else:
+                        self.is_use_2x = False
                     self.update_ui()
                     self.label_current_player.configure(
                         text="Current Player: {}".format(self.game.players[self.game.turn].name))
-
-                    self.count_2x = 0
-                    self.is_use_2x = False
                 else:
                     self.game.next_turn(move, self.is_use_2x)
                     self.update_ui()
@@ -172,5 +173,4 @@ class Window(Tk):
             messagebox.showinfo("Error",
                                 "Detectives can't use 2x ticket")
         else:
-            self.count_2x = 1
             self.is_use_2x = True
