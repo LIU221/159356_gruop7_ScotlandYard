@@ -56,10 +56,11 @@ class Game:
                 if self.x.tickets["2x"] < 0:
                     messagebox.showinfo("Error",
                                         "Mr X: stop trying to be special - it isn't working.  attempted to use too many 2x tickets")
-                self.perform_move(self.x, move[1])
-                self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1][1]))
-                self.perform_move(self.x, move[2])
-                self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[2][1]))
+                else:
+                    self.perform_move(self.x, move[1])
+                    self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1][1]))
+                    self.perform_move(self.x, move[2])
+                    self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[2][1]))
             else:
                 self.perform_move(self.x, move)
                 self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1]))
@@ -97,18 +98,19 @@ class Game:
             messagebox.showinfo("Error",
                                 "{}: Move from {} to {} via {} ticket is illegal".format(player.name, player.pos,
                                                                                          move[0], move[1]))
-        if player is not self.x and any(move[0] == plr.pos for plr in self.detectives):
+        elif player is not self.x and any(move[0] == plr.pos for plr in self.detectives):
             messagebox.showinfo("Error",
                                 "{}: This node ain't big enough for the both of us! node {} has two people".format(
                                     player.name, move[0]))
-        player.pos = move[0]
-        transport = move[1]
-        player.tickets[transport] -= 1
-        if player.tickets[transport] < 0:
-            messagebox.showinfo("Error",
-                                "{} used a {} ticket they didn't have!".format(player.name, transport))
+        else:
+            player.pos = move[0]
+            transport = move[1]
+            player.tickets[transport] -= 1
+            if player.tickets[transport] < 0:
+                messagebox.showinfo("Error",
+                                    "{} used a {} ticket they didn't have!".format(player.name, transport))
 
-        print("{} moved to {} using {}".format(player.name, move[0], move[1]))
+            print("{} moved to {} using {}".format(player.name, move[0], move[1]))
 
     def cant_move(self, player):
         for ticket in player.tickets.keys():
