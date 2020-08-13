@@ -15,7 +15,9 @@ class Window(Tk):
 
         # setup variables
         self.game = game
+
         self.mode = mode
+
         self.player_number = player_number
         self.role = role
         self.roles = ["X", "A", "B", "C", "D", "E"]
@@ -110,13 +112,16 @@ class Window(Tk):
     # sends user inputted move
     def move(self, *_):
         if self.game.players[self.game.turn].name == self.roles[self.role]:
-            print(self.text_user_input.get())
             if self.text_user_input.get():
                 move = (int(self.text_user_input.get()), self.drop_down_selected.get())  # should be changed
-                self.game.next_turn(move)
-                self.update_ui()
-                self.label_current_player.configure(
-                    text="Current Player: {}".format(self.game.players[self.game.turn].name))
+                if self.role > 0 and self.drop_down_selected.get() == "black":
+                    messagebox.showinfo("Error",
+                                        "Detective can't use '2x' ticket")
+                else:
+                    self.game.next_turn(move)
+                    self.update_ui()
+                    self.label_current_player.configure(
+                        text="Current Player: {}".format(self.game.players[self.game.turn].name))
             else:
                 messagebox.showinfo("Error",
                                     "Please enter a location")
