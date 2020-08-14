@@ -19,6 +19,7 @@ class Game:
         self.round = 1
         self.turn = 0
         self.player_number = player_number
+        self.mrx_ticket = "None"
 
         startTickets = {"taxi": 10, "bus": 8, "underground": 4}
 
@@ -51,16 +52,24 @@ class Game:
                 move = self.mr_x_ai.play_move(copy.deepcopy(self.x))
 
             if is_use_2x:
-                self.x.tickets["2x"] -= 1
-                if self.x.tickets["2x"] < 0:
+                if self.x.tickets["2x"] <= 0:
                     messagebox.showinfo("Error",
                                         "Mr X: stop trying to be special - it isn't working.  attempted to use too many 2x tickets")
                 else:
                     self.turn -= 1
-                    self.perform_move(self.x, move)
+                    if self.perform_move(self.x, move):
+                        self.x.tickets["2x"] -= 1
+                        self.mrx_ticket = move[1]
+                        return True
+                    else:
+                        return False
+
                     # self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1]))
             else:
-                self.perform_move(self.x, move)
+                if self.perform_move(self.x, move):
+                    self.mrx_ticket = move[1]
+                else:
+                    self.turn -= 1
                 # self.x_history.append((self.x.pos if self.round in self.reveal_rounds else None, move[1]))
 
             # print("X Ledger is updated to ", self.x_history)
@@ -76,7 +85,8 @@ class Game:
                     move = is_player_move
                 else:
                     move = self.detectives_ai.play_move(copy.deepcopy(detective), copy.deepcopy(self.detectives))
-                self.perform_move(detective, move)
+                if not self.perform_move(detective, move):
+                    self.turn -= 1
 
         if self.is_game_over():
             messagebox.showinfo("Game Result", self.is_game_over())
@@ -96,10 +106,12 @@ class Game:
             messagebox.showinfo("Error",
                                 "{}: Move from {} to {} via {} ticket is illegal".format(player.name, player.pos,
                                                                                          move[0], move[1]))
+            return False
         elif player is not self.x and any(move[0] == plr.pos for plr in self.detectives):
             messagebox.showinfo("Error",
                                 "{}: This node ain't big enough for the both of us! node {} has two people".format(
                                     player.name, move[0]))
+            return False
         else:
             player.pos = move[0]
             transport = move[1]
@@ -109,6 +121,7 @@ class Game:
                                     "{} used a {} ticket they didn't have!".format(player.name, transport))
 
             print("{} moved to {} using {}".format(player.name, move[0], move[1]))
+            return True
 
     def cant_move(self, player):
         for ticket in player.tickets.keys():

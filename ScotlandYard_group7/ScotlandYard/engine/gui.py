@@ -23,7 +23,6 @@ class Window(Tk):
         self.roles = ["X", "A", "B", "C", "D", "E"]
 
         self.is_use_2x = False
-        self.count_2x = 0
 
         self.reveal_rounds = [3, 8, 13, 18, 24]
 
@@ -34,6 +33,7 @@ class Window(Tk):
         self.control_frame = Frame(self)
         self.label_current_round = Label(self.control_frame, text="Current Round: 1")
         self.label_current_player = Label(self.control_frame, text="Current Player: X")
+        self.label_mrx_ticket = Label(self.control_frame, text="Ticket Mrx used: None")
         self.button_next_turn = Button(self.control_frame, text="Next Turn", command=self.next_turn)
         self.text_user_input = Entry(self.control_frame, text="move")
 
@@ -50,6 +50,7 @@ class Window(Tk):
         self.control_frame.pack(before=self.board_canvas, side='right', anchor='e')
         self.label_current_round.pack(fill='x')
         self.label_current_player.pack(fill='x')
+        self.label_mrx_ticket.pack(fill='x')
         self.button_next_turn.pack(fill='x')
         Label(self.control_frame, text="\n\n\n").pack(fill='x')
         self.button_2x.pack(fill='x')
@@ -81,6 +82,7 @@ class Window(Tk):
                 self.node_locations[int(l[0])] = (float(l[1]), float(l[2]))
 
     def next_turn(self, *_):
+        print(self.game.turn)
         try:
             # checks if move should be AI made or player made
             if self.game.players[self.game.turn].name != self.roles[self.role]:
@@ -89,6 +91,8 @@ class Window(Tk):
                     text="Current Round: {}".format(self.game.round))
                 self.label_current_player.configure(
                     text="Current Player: {}".format(self.game.players[self.game.turn].name))
+                self.label_mrx_ticket.configure(
+                    text="Ticket Mrx used: {}".format(self.game.mrx_ticket))
             else:
                 messagebox.showinfo("Error",
                                     "It's your turn.")
@@ -148,18 +152,22 @@ class Window(Tk):
                     messagebox.showinfo("Error",
                                         "Detectives can't use black ticket")
                 elif self.is_use_2x:
-                    self.game.next_turn(move, self.is_use_2x)
-                    self.update_ui()
-                    self.label_current_player.configure(
-                        text="Current Player: {}".format(self.game.players[self.game.turn].name))
-
-                    self.count_2x = 0
-                    self.is_use_2x = False
+                    if not self.game.next_turn(move, self.is_use_2x):
+                        self.is_use_2x = True
+                    else:
+                        self.is_use_2x = False
+                        self.update_ui()
+                        self.label_current_player.configure(
+                            text="Current Player: {}".format(self.game.players[self.game.turn].name))
+                        self.label_mrx_ticket.configure(
+                            text="Ticket Mrx used: {}".format(self.game.mrx_ticket))
                 else:
                     self.game.next_turn(move, self.is_use_2x)
                     self.update_ui()
                     self.label_current_player.configure(
                         text="Current Player: {}".format(self.game.players[self.game.turn].name))
+                    self.label_mrx_ticket.configure(
+                        text="Ticket Mrx used: {}".format(self.game.mrx_ticket))
             else:
                 messagebox.showinfo("Error",
                                     "Please enter a location")
@@ -172,5 +180,4 @@ class Window(Tk):
             messagebox.showinfo("Error",
                                 "Detectives can't use 2x ticket")
         else:
-            self.count_2x = 1
             self.is_use_2x = True
