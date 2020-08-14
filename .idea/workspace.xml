@@ -29,8 +29,11 @@
       <file leaf-file-name="test_game.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/Unittest/test_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="7" selection-start-column="7" selection-end-column="15" />
+            <state relative-caret-position="253">
+              <caret line="11" column="30" selection-start-column="7" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -173,7 +176,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in test_game.py">
+  <component name="RunManager" selected="Python tests.Unittests for test_game.TestGame">
     <configuration name="Unittests for test_game.TestGame" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="159356_gruop7_ScotlandYard" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -220,8 +223,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests in test_game.py" />
         <item itemvalue="Python tests.Unittests for test_game.TestGame" />
+        <item itemvalue="Python tests.Unittests in test_game.py" />
         <item itemvalue="Python tests.Unittests for test_game.TestGame.test_next_turn_player1" />
       </list>
     </recent_temporary>
@@ -304,6 +307,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -430,8 +436,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/Unittest/test_game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-start-column="7" selection-end-column="15" />
+        <state relative-caret-position="253">
+          <caret line="11" column="30" selection-start-column="7" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
