@@ -54,7 +54,8 @@ class Game:
             if is_use_2x:
                 if self.x.tickets["2x"] <= 0:
                     messagebox.showinfo("Error",
-                                        "Mr X: stop trying to be special - it isn't working.  attempted to use too many 2x tickets")
+                                        "Mr X: stop trying to be special - it isn't working.  attempted to use too "
+                                        "many 2x tickets")
                 else:
                     self.turn -= 1
                     if self.perform_move(self.x, move):

@@ -1,10 +1,10 @@
 import unittest
 import random
 
-from ScotlandYard.engine import mrx, detectives
-from ScotlandYard.engine.game import Game
-from ScotlandYard.engine.loadBoard import load_board
-from ScotlandYard.engine.player import Player
+from ScotlandYard_group7.ScotlandYard.engine import mrx, detectives
+from ScotlandYard_group7.ScotlandYard.engine.game import Game
+from ScotlandYard_group7.ScotlandYard.engine.loadBoard import load_board
+from ScotlandYard_group7.ScotlandYard.engine.player import Player
 
 
 class TestGame(unittest.TestCase):
@@ -16,8 +16,9 @@ class TestGame(unittest.TestCase):
     def test_next_turn_player1(self):
         game = Game(mrx, detectives, 6)
         pos1 = random.choice(self.boardmap[game.x.pos]["taxi"])
+        game.next_turn((pos1, "taxi"), True)
         pos2 = random.choice(self.boardmap[pos1]["taxi"])
-        game.next_turn(('2x', (pos1, "taxi"), (pos2, "taxi")))
+        game.next_turn((pos2, "taxi"))
         self.assertEqual(game.x.pos, pos2)
 
     # Player, mrx, don't use '2x' ticket

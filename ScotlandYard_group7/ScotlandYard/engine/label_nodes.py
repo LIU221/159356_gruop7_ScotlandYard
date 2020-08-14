@@ -23,4 +23,3 @@ cnv.bind("<Button-1>", callback)
 
 cnv.pack()
 
-root.mainloop()
