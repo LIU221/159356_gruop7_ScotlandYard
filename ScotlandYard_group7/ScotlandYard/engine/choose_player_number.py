@@ -1,6 +1,6 @@
 from tkinter import Tk, Label, Button, OptionMenu, IntVar
 
-from ScotlandYard.engine.choose_role import RolePage
+from ScotlandYard_group7.ScotlandYard.engine.choose_role import RolePage
 
 
 class PlayerNumberPage(Tk):

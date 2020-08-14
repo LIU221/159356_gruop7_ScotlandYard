@@ -3,7 +3,7 @@ from tkinter import Tk, Canvas, Label, Button, Frame, Entry, StringVar, OptionMe
 
 from PIL import ImageTk, Image
 
-from ScotlandYard.engine.game import Game
+from ScotlandYard_group7.ScotlandYard.engine.game import Game
 
 UNSCALED_RECT_SIZE = 0.008
 

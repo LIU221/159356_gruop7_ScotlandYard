@@ -1,8 +1,8 @@
 from tkinter import Tk, Label, IntVar, Button, Radiobutton
 
-from ScotlandYard.engine import mrx, detectives
-from ScotlandYard.engine.game import Game
-from ScotlandYard.engine.gui import Window
+from ScotlandYard_group7.ScotlandYard.engine import mrx, detectives
+from ScotlandYard_group7.ScotlandYard.engine.game import Game
+from ScotlandYard_group7.ScotlandYard.engine.gui import Window
 
 
 class RolePage(Tk):

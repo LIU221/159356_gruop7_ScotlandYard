@@ -1,6 +1,6 @@
 from tkinter import Tk, Label, Button
 
-from ScotlandYard.engine.choose_player_number import PlayerNumberPage
+from ScotlandYard_group7.ScotlandYard.engine.choose_player_number import PlayerNumberPage
 
 
 class StartPage(Tk):
