@@ -26,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_game.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/Unittest/test_game.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
@@ -38,6 +38,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/engine/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/__init__.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file leaf-file-name="test_try.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/Unittest/test_try.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -46,15 +56,6 @@
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="choose_role.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/engine/choose_role.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -126,6 +127,8 @@
       <list>
         <option value="$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/Unittest/test_try.py" />
         <option value="$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/Unittest/test_game.py" />
+        <option value="$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/engine/__init__.py" />
+        <option value="$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/__init__.py" />
       </list>
     </option>
   </component>
@@ -158,20 +161,6 @@
               <item name="159356_gruop7_ScotlandYard" type="462c0819:PsiDirectoryNode" />
               <item name="ScotlandYard_group7" type="462c0819:PsiDirectoryNode" />
               <item name="ScotlandYard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="159356_gruop7_ScotlandYard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="159356_gruop7_ScotlandYard" type="462c0819:PsiDirectoryNode" />
-              <item name="ScotlandYard_group7" type="462c0819:PsiDirectoryNode" />
-              <item name="ScotlandYard" type="462c0819:PsiDirectoryNode" />
-              <item name="engine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="159356_gruop7_ScotlandYard" type="b2602c69:ProjectViewProjectNode" />
-              <item name="159356_gruop7_ScotlandYard" type="462c0819:PsiDirectoryNode" />
-              <item name="ScotlandYard_group7" type="462c0819:PsiDirectoryNode" />
-              <item name="ScotlandYard" type="462c0819:PsiDirectoryNode" />
-              <item name="Unittest" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -323,12 +312,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="-3" width="1542" height="830" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966975" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966975" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32970026" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32970026" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3773842" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3773842" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -524,6 +512,12 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/engine/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
