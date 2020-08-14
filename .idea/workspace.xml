@@ -29,8 +29,8 @@
       <file leaf-file-name="test_game.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/Unittest/test_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="299">
+              <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -202,7 +202,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for test_try.TestGame.test_nothing">
+  <component name="RunManager" selected="Python tests.Unittests for ScotlandYard.Unittest.test_game.TestGame">
+    <configuration name="Unittests for ScotlandYard.Unittest.test_game.TestGame" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="159356_gruop7_ScotlandYard" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ScotlandYard_group7" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;ScotlandYard.Unittest.test_game.TestGame&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+    </configuration>
     <configuration name="Unittests for test_game.TestGame" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="159356_gruop7_ScotlandYard" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -260,12 +273,14 @@
       <item itemvalue="Python tests.Unittests for test_game.TestGame.test_next_turn_player1" />
       <item itemvalue="Python tests.Unittests in test_game.py" />
       <item itemvalue="Python tests.Unittests for test_try.TestGame.test_nothing" />
+      <item itemvalue="Python tests.Unittests for ScotlandYard.Unittest.test_game.TestGame" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests for ScotlandYard.Unittest.test_game.TestGame" />
+        <item itemvalue="Python tests.Unittests in test_game.py" />
         <item itemvalue="Python tests.Unittests for test_try.TestGame.test_nothing" />
         <item itemvalue="Python tests.Unittests for test_game.TestGame" />
-        <item itemvalue="Python tests.Unittests in test_game.py" />
         <item itemvalue="Python tests.Unittests for test_game.TestGame.test_next_turn_player1" />
       </list>
     </recent_temporary>
@@ -296,6 +311,15 @@
     <history-entry file="Unittests_for_test_try_TestGame_test_nothing - 2020.08.14 at 11h 37m 50s.xml">
       <configuration name="Unittests for test_try.TestGame.test_nothing" configurationId="tests" />
     </history-entry>
+    <history-entry file="Unittests_in_test_game_py - 2020.08.14 at 11h 45m 56s.xml">
+      <configuration name="Unittests in test_game.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test_game_py - 2020.08.14 at 11h 46m 23s.xml">
+      <configuration name="Unittests in test_game.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_ScotlandYard_Unittest_test_game_TestGame - 2020.08.14 at 11h 46m 36s.xml">
+      <configuration name="Unittests for ScotlandYard.Unittest.test_game.TestGame" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="-3" width="1542" height="830" extended-state="6" />
@@ -304,7 +328,7 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24966975" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32970026" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32970026" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16621253" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3773842" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -493,8 +517,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ScotlandYard_group7/ScotlandYard/Unittest/test_game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="299">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
