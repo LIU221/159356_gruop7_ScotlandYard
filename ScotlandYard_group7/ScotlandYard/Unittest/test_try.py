@@ -1,6 +1,4 @@
 import unittest
-import random
-
 
 class TestGame(unittest.TestCase):
 

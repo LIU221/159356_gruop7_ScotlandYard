@@ -1,10 +1,10 @@
 import unittest
 import random
 
-import mrx, detectives
-from game import Game
-from loadBoard import load_board
-from player import Player
+from ScotlandYard_group7.ScotlandYard.engine import mrx, detectives
+from ScotlandYard_group7.ScotlandYard.engine.game import Game
+from ScotlandYard_group7.ScotlandYard.engine.loadBoard import load_board
+from ScotlandYard_group7.ScotlandYard.engine.player import Player
 
 
 class TestGame(unittest.TestCase):
