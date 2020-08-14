@@ -1,5 +1,6 @@
 import os
-from tkinter import Tk, Canvas, Label, Button, Frame, Entry, StringVar, OptionMenu, messagebox
+from tkinter import Tk, Canvas, Label, Button, Frame, Entry, StringVar, OptionMenu, messagebox, YES, BOTH
+import tkinter as tk
 
 from PIL import ImageTk, Image
 
@@ -26,28 +27,46 @@ class Window(Tk):
 
         self.reveal_rounds = [3, 8, 13, 18, 24]
 
-        self.geometry('500x300')
+        self.title('Scotland-Game')
+
+        w = self.winfo_screenwidth()
+        h = self.winfo_screenheight()
+        self.geometry("%dx%d" % (w, h))
 
         # create widgets
         self.board_canvas = Canvas(self, background="white")
         self.control_frame = Frame(self)
-        self.label_current_round = Label(self.control_frame, text="Current Round: 1")
-        self.label_current_player = Label(self.control_frame, text="Current Player: X")
-        self.label_mrx_ticket = Label(self.control_frame, text="Ticket Mrx used: None")
-        self.button_next_turn = Button(self.control_frame, text="Next Turn", command=self.next_turn)
-        self.text_user_input = Entry(self.control_frame, text="move")
 
-        self.button_2x = Button(self.control_frame, text="Use 2x ticket", command=self.use_2x_ticket)
+        baseDirectory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        fileName_image = baseDirectory + os.sep + "img" + os.sep + "detective.jpg"
+        self.img_pil = Image.open(fileName_image)
+        self.img = ImageTk.PhotoImage(self.img_pil.resize((250, 250)))
+
+        self.label = Label(self.control_frame, compound=tk.CENTER)
+
+        self.label.configure(image=self.img)
+        self.label.pack(expand=YES, fill=BOTH)
+
+        self.label_current_round = Label(self.control_frame, font='Georgia 14', text="Current Round: 1")
+        self.label_current_player = Label(self.control_frame, font='Georgia 14', text="Current Player: X")
+        self.label_mrx_ticket = Label(self.control_frame, font='Georgia 14', text="Ticket Mrx used: None")
+        self.button_next_turn = Button(self.control_frame, font='Georgia 14', text="Next Turn", cursor="hand2",
+                                       command=self.next_turn)
+        self.text_user_input = Entry(self.control_frame, font='Georgia 14', text="move")
+
+        self.button_2x = Button(self.control_frame, font='Georgia 14', text="Use 2x ticket", cursor="hand2",
+                                command=self.use_2x_ticket)
 
         drop_down_options = {"taxi", "bus", "underground", "black"}
         self.drop_down_selected = StringVar(self.control_frame)
         self.drop_down_selected.set("taxi")
         self.drop_down_menu = OptionMenu(self.control_frame, self.drop_down_selected, *drop_down_options)
-        self.button_send_action = Button(self.control_frame, text="Move", command=self.move)
+        self.button_send_action = Button(self.control_frame, font='Georgia 14', text="Move", cursor="hand2",
+                                         command=self.move)
 
         # layout widgets
         self.board_canvas.pack(fill='both', expand=True, anchor='w')
-        self.control_frame.pack(before=self.board_canvas, side='right', anchor='e')
+        self.control_frame.pack(before=self.board_canvas, side='right')
         self.label_current_round.pack(fill='x')
         self.label_current_player.pack(fill='x')
         self.label_mrx_ticket.pack(fill='x')
