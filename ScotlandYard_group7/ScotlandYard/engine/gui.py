@@ -38,7 +38,10 @@ class Window(Tk):
         self.control_frame = Frame(self)
 
         baseDirectory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        fileName_image = baseDirectory + os.sep + "img" + os.sep + "detective.jpg"
+        if self.role > 0:
+            fileName_image = baseDirectory + os.sep + "img" + os.sep + "detective.jpg"
+        else:
+            fileName_image = baseDirectory + os.sep + "img" + os.sep + "Mrx.jpg"
         self.img_pil = Image.open(fileName_image)
         self.img = ImageTk.PhotoImage(self.img_pil.resize((250, 250)))
 
@@ -86,7 +89,7 @@ class Window(Tk):
 
         # move images
         self.bind("<Configure>", self.update_ui)
-        self.player_colors = ["black", "red", "yellow", "green", "blue", "purple"]
+        self.player_colors = ["black", "red", "orange", "green", "blue", "purple"]
         self.old_canvas_size = self.winfo_width(), self.winfo_height()
         self.player_rects = [self.board_canvas.create_rectangle(0, 0, 1, 1, fill=self.player_colors[i]) for i in
                              range(len(self.game.players))]
