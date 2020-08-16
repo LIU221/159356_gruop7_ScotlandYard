@@ -1,10 +1,12 @@
 import unittest
 import random
-
-from ScotlandYard_group7.ScotlandYard.engine import mrx, detectives
-from ScotlandYard_group7.ScotlandYard.engine.game import Game
-from ScotlandYard_group7.ScotlandYard.engine.loadBoard import load_board
-from ScotlandYard_group7.ScotlandYard.engine.player import Player
+import sys, os
+sys.path.append("..")
+sys.path.extend([os.path.join(root, name) for root, dirs, _ in os.walk("../") for name in dirs])
+from engine import mrx, detectives
+from engine.game import Game
+from engine.loadBoard import load_board
+from engine.player import Player
 
 
 class TestGame(unittest.TestCase):

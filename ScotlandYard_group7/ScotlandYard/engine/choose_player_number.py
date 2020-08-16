@@ -4,7 +4,7 @@ from tkinter import Tk, Label, Button, OptionMenu, IntVar, YES, BOTH
 
 from PIL import Image, ImageTk
 
-from ScotlandYard_group7.ScotlandYard.engine.choose_role import RolePage
+from choose_role import RolePage
 
 
 class PlayerNumberPage(Tk):

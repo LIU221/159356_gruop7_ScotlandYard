@@ -4,8 +4,8 @@ from tkinter import messagebox
 
 import os
 
-from ScotlandYard_group7.ScotlandYard.engine.loadBoard import load_board
-from ScotlandYard_group7.ScotlandYard.engine.player import Player
+from loadBoard import load_board
+from player import Player
 
 
 class Game:

@@ -4,9 +4,9 @@ from tkinter import Tk, Label, Button, YES, BOTH
 
 from PIL import Image, ImageTk
 
-from ScotlandYard_group7.ScotlandYard.engine import mrx, detectives
-from ScotlandYard_group7.ScotlandYard.engine.game import Game
-from ScotlandYard_group7.ScotlandYard.engine.gui import Window
+import mrx, detectives
+from game import Game
+from gui import Window
 
 
 class RolePage(Tk):

@@ -4,7 +4,7 @@ import tkinter as tk
 
 from PIL import ImageTk, Image
 
-from ScotlandYard_group7.ScotlandYard.engine.game import Game
+from game import Game
 
 UNSCALED_RECT_SIZE = 0.008
 

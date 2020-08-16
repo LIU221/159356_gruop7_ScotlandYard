@@ -3,8 +3,8 @@
 from typing import List, Tuple
 import random
 
-from ScotlandYard_group7.ScotlandYard.engine.loadBoard import load_board
-from ScotlandYard_group7.ScotlandYard.engine.player import Player
+from loadBoard import load_board
+from player import Player
 
 
 def play_move(detective: Player, detectives: List[Player]) -> Tuple[int, str]:

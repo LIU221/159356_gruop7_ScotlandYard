@@ -3,7 +3,7 @@ from tkinter import Tk, Label, Button, Canvas, Frame, BOTH, YES
 import tkinter as tk
 from PIL import Image, ImageTk
 
-from ScotlandYard_group7.ScotlandYard.engine.choose_player_number import PlayerNumberPage
+from choose_player_number import PlayerNumberPage
 
 
 class StartPage(Tk):
