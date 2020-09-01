@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # 添加app的静态文件地址，绝对地址和相对地址都可以
 STATICFILES_DIRS = [
-    "/home/ubuntu/InquireScore/Inquire/static"
+    "E:\Program Related\SEProject\\159356_gruop7_ScotlandYard\ScotlandYard_group7\Static"
 ]
 # 统一的静态文件地址
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
