@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <link rel="stylesheet" href="/static/Board.css">
+</head>
+<body>
+<section>
+    <img src="/static/board.jpg" width="100%" />
+</section>
+
+<aside>
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
+    <img src="/static/detective.jpg" width="250" height="250" />
+    <h1>Current Round:</h1>
+    <h1>Current Turn:</h1>
+    <h1>Ticket Mrx used:</h1>
+    <form id="choose_form" method="POST" action="/board/">
+        <h1>Choose Ticket</h1>
+        <select name="ticket">
+            <option value="taxi">taxi</option>
+            <option value="underground">underground</option>
+            <option value="bus">bus</option>
+            <option value="black">black</option>
+        </select><br>
+        <h1>Destination:</h1>
+        <input type="text" name="destination" size=40><br>
+        <br>
+        <input type="submit" value="Move">
+    </form>
+
+</aside>
+
+
+</body>
+</html>

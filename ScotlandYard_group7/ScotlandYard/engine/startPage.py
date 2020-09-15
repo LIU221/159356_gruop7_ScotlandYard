@@ -1,4 +1,5 @@
 import os
+import webbrowser
 from tkinter import Tk, Label, Button, Canvas, Frame, BOTH, YES
 import tkinter as tk
 from PIL import Image, ImageTk
@@ -42,7 +43,9 @@ class StartPage(Tk):
         palyer_number_page.mainloop()
 
     def multiplayer(self):
-        pass
+        url = "http://127.0.0.1:8000/"
+        #url = "http://49.232.18.122:8100/"
+        webbrowser.open(url)
 
     def hover1(self, event):
         self.button_vs_ai.configure(background="black", fg='white')

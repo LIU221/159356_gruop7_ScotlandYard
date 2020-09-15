@@ -1,0 +1,14 @@
+
+section{
+    display:inline-block;
+    width:80%;
+
+}
+
+aside{
+    display:inline-block;
+    float: right;
+    width:18%;
+    margin-left:2%;
+}
+

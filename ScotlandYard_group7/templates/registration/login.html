@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Log In{% endblock %}
+
+{% block tips %}
+<h1>Welcome to ScotlandYard</h1>
+<h2>Sign in to Multiplayer Mode</h2>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+  <br><br>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Log In</button>
+</form>
+<br>
+<h3>You can also sign up</h3>
+<a href="{% url 'signup' %}">sign up</a>
+{% endblock %}

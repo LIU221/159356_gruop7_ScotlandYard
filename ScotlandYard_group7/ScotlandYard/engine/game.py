@@ -98,7 +98,7 @@ class Game:
             self.round += 1
 
     def next_round(self):
-        for i in range(6):
+        for i in range(self.player_number):
             self.next_turn()
 
     def perform_move(self, player, move):
