@@ -27,8 +27,9 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ScotlandYard_group7" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -150,8 +151,8 @@
       <item itemvalue="Python.admin" />
       <item itemvalue="Python.apps" />
       <item itemvalue="Python.models" />
-      <item itemvalue="Python.tests" />
       <item itemvalue="Python.startPage" />
+      <item itemvalue="Python.tests" />
     </list>
     <recent_temporary>
       <list>
