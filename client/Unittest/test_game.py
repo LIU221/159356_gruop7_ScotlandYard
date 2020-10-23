@@ -38,15 +38,6 @@ class TestGame(unittest.TestCase):
         game.next_turn((pos, "taxi"))
         self.assertEqual(game.detectives[0].pos, pos)
 
-    # Not finish, because we haven't design AI yet
-    # AI, mrx
-    def test_next_turn_ai1(self):
-        self.assertTrue(True)
-
-    # AI, detective
-    def test_next_turn_ai2(self):
-        self.assertTrue(True)
-
     def test_cant_move1(self):
         game = Game(mrx, detectives, 6)
         game.x = Player({"taxi": 100, "bus": 100, "underground": 100, "black": 5, "2x": 2}, 155, "X")

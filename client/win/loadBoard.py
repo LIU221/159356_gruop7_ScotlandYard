@@ -34,8 +34,8 @@ def load_board():
                 bList = (str(entry["bus"]))
             if "underground" in entry:
                 uList = (str(entry["underground"]))
-            # print(str(entry["underground"]))
-            # print('{ ' +  '"id": '+  data[0] + ', "taxi" :' +tList + ', "bus": ' +bList + ', "underground": ' + uList + '},')
+            # print(str(entry["underground"])) print('{ ' +  '"id": '+  data[0] + ', "taxi" :' +tList + ',
+            # "bus": ' +bList + ', "underground": ' + uList + '},')
             if len(data) > 4:
                 entry["black"] += list(set([int(a.strip()) for a in data[4].split(' ')]))
 
