@@ -54,7 +54,7 @@ class StartPage(Tk):
         webbrowser.open(url)
     def multiplayer2(self):
         #url = "http://127.0.0.1:8081/"
-        url = "http://49.232.18.122/"
+        url = "http://49.232.18.122:8081/"
         webbrowser.open(url)
 
     def hover1(self, event):
